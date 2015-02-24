@@ -1,4 +1,4 @@
-//Road.cpp by Alex Butorin (1216985)
+//Road.cpp by Alex Butorin
 
 #include "Road.h"
 #include "Road.h"
