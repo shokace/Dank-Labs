@@ -1,4 +1,4 @@
-//RoadDriver.cpp by Alex Butorin (1216985)
+//RoadDriver.cpp by
 
 #include <iostream>
 
