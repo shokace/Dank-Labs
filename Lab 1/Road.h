@@ -1,4 +1,4 @@
-//Road.h by Alex Butorin (1216985)
+//Road.h by AB
 #ifndef Road_h
 #define Road_h
 
