@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-  Road testRoad;
+    Road testRoad;
     float thickness_in,length_m,width_ft, volume_cuft;
 
     thickness_in = 3; // 3 in thick

@@ -3,6 +3,10 @@
 #include "Road.h"
 #include "Road.h"
 
+const float Road::DEFAULT_WIDTH_FT = 10;
+const float Road::DEFAULT_LENGTH_M = 1;
+const float Road::DEFAULT_THICKNESS_IN = 5;
+
 //Setters
 void Road::setWidth( float width)
 {
