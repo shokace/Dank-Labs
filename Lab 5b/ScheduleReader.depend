@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1427067809 source:c:\users\work\documents\school\comsc-210\schedulereader\schedulereader.cpp
-	<fstream>
-	<iostream>
-	<string>
-
