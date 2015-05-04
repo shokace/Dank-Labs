@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1430426399 source:c:\users\work\documents\school\comsc-210\lab2a\fraction.cpp
+	<iostream>
+	"Fraction.h"
+
+1430426078 c:\users\work\documents\school\comsc-210\lab2a\fraction.h
+
+1430426489 source:c:\users\work\documents\school\comsc-210\lab2a\fractiondriver.cpp
+	<iostream>
+	"Fraction.h"
+	"Fraction.h"
+
