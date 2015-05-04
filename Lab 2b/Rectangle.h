@@ -9,21 +9,45 @@ template <class DataType>
 class Rectangle
 {
 public:
-  void setWidth ( const DataType & );
-  {
-    w = DataType
-  }
-  void setLength( const DataType & );
-  DataType setWidth const ( const DataType & );
-  DataType getWidth const ( const DataType & );
-  bool isLengthBigger const ();
-  float getPerimeter const();
-  float getArea const();
+
+  // Setters for length and width
+  void setWidth  ( const DataType & );
+  void setLength ( const DataType & );
+
+  // Getters for length and width
+  DataType getWidth ( const DataType & ) const {return l;}
+  DataType getWidth ( const DataType & ) const {return w;}
+
+  // Other functions
+  bool  isLengthBigger const ();
+  float getPerimeter   const ();
+  float getArea        const ();
 
 private:
   DataType l, w; // Length and width
 
 
 };
+
+
+
+  // Setters for length and width
+
+  template <class DataType>
+  void Rectangle<DataType>::setWidth  ( const DataType & width  ) { w = width;  }
+
+  template <class DataType>
+  void Rectangle<DataType>::setLength ( const DataType & length ) { l = length; }
+
+  // Other functions
+
+  template <class DataType>
+  bool  Rectangle<DataType>::isLengthBigger const ();
+
+  template <class DataType>
+  float Rectangle<DataType>::getPerimeter   const ();
+
+  template <class DataType>
+  float Rectangle<DataType>::getArea        const ();
 
 #endif
