@@ -42,12 +42,12 @@ private:
   // Other functions
 
   template <class DataType>
-  bool  Rectangle<DataType>::isLengthBigger const ();
+  bool  Rectangle<DataType>::isLengthBigger()const;
 
   template <class DataType>
-  float Rectangle<DataType>::getPerimeter   const ();
+  float Rectangle<DataType>::getPerimeter()const;
 
   template <class DataType>
-  float Rectangle<DataType>::getArea        const ();
+  float Rectangle<DataType>::getArea()const;
 
 #endif
