@@ -138,7 +138,7 @@ int main()
     }
     // Increase Counter
     scheduleIndex++;
-  }
+  } // end while loop
 
 	// Close the file
 	fin.close(); // So. Fin. Close.

@@ -11,3 +11,15 @@
 1427075241 c:\users\work\documents\school\comsc-210\schedulereader\staticarray.h
 	<exception>
 
+1430719323 source:s:\documents\github\cs-210-labs\lab 5b\dvcschedule5b.cpp
+	<fstream>
+	<iostream>
+	<string>
+	<exception>
+	<ctime>
+	<iomanip>
+	"StaticArray.h"
+
+1430719324 s:\documents\github\cs-210-labs\lab 5b\staticarray.h
+	<exception>
+
