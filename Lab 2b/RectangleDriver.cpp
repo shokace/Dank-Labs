@@ -6,6 +6,8 @@
 #include "Rectangle.h"
 #include "Rectangle.h" // Ifndef test
 
+using namespace std;
+
 int main()
 {
   cout << "Test" << endl;

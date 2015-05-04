@@ -11,23 +11,26 @@ class Rectangle
 public:
 
   // Setters for length and width
-  void setWidth  ( const DataType & );
-  void setLength ( const DataType & );
+  void setWidth  ( const DataType & width  ) { w = width;  }
+  void setLength ( const DataType & length ) { l = length; }
+
 
   // Getters for length and width
   DataType getWidth () const {return l;}
   DataType getLength () const {return w;}
 
   // Other functions
-  bool  isLengthBigger const ();
-  float getPerimeter   const ();
-  float getArea        const ();
+  bool  isLengthBigger () const;
+  float getPerimeter () const;
+  float getArea () const;
 
 private:
   DataType l, w; // Length and width
 
 
 };
+<<<<<<< HEAD
+=======
 
 
 
@@ -50,4 +53,5 @@ private:
   template <class DataType>
   float Rectangle<DataType>::getArea()const;
 
+>>>>>>> origin/master
 #endif

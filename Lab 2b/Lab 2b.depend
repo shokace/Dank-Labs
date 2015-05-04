@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1430718742 source:s:\documents\github\cs-210-labs\lab 2b\rectangledriver.cpp
+	<iostream>
+	"Rectangle.h"
+	"Rectangle.h"
+
+1430718832 s:\documents\github\cs-210-labs\lab 2b\rectangle.h
+
