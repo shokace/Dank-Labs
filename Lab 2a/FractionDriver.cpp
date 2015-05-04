@@ -1,6 +1,7 @@
 // Alex Butorin, Petar Juric, Kevin Crabbe
 // Lab 2a
 // FractionDriver.cpp
+// Apparently GitHub doesn't think changing one word in a file is worth a re-sync...
 
 #include <iostream>
 #include "Fraction.h"
@@ -21,7 +22,7 @@ int main()
   f2.n = 5;
   f2.d = 9;
 
-  cout << "Object copy testing - should output 3/4: ";
+  cout << "Object assignment testing - should output 3/4: ";
   Fraction fcopy = f1;
   cout << fcopy.n << "/" << fcopy.d << endl;
 
