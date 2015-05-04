@@ -29,6 +29,13 @@ public:
   float getPerimeter () const { return ( 2 * ( l + w)); }
   float getArea () const { return ( l * w ); }
 
+  // Overloaded operator for object assignment/copy
+  bool operator=( const DataType & rect)
+  {
+    l =  rect.getLength();
+    w =  rect.getWidth ();
+  }
+
 private:
   DataType l, w; // Length and width
 
