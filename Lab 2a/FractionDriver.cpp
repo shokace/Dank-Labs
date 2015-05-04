@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
   cout << "Alex Butorin, Petar Juric, Kevin Crabbe" << endl
-       << "Lab 2a - Fraction.h, Fraction.cpp & FractionDriver.h" << endl << endl;
+       << "Lab 2a - Fraction.h, Fraction.cpp & FractionDriver.cpp" << endl << endl;
 
   cout << "Declaring Fraction structs, fractions f1=3/4 and f2=5/9" << endl;
   Fraction f1, f2;
@@ -25,11 +25,11 @@ int main()
   Fraction fcopy = f1;
   cout << fcopy.n << "/" << fcopy.d << endl;
 
-  cout << "Compare 3/4 t 5/9 Result should be true: ";
+  cout << "Check if 3/4 is larger than 5/9 Result should be true: ";
   if( f1 > f2 ) { cout << "True" << endl;}
   else {cout << "False" << endl;}
 
-  cout << "Compare 5/9 to 3/4 Result should be false: ";
+  cout << "Check if 5/9 is larger than 3/4 Result should be false: ";
   if( f2 > f1 ) { cout << "True" << endl;}
   else {cout << "False" << endl;}
 
