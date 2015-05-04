@@ -1,8 +1,13 @@
 # depslib dependency file v1.0
-1430718742 source:s:\documents\github\cs-210-labs\lab 2b\rectangledriver.cpp
+1430719034 source:s:\documents\github\cs-210-labs\lab 2b\rectangledriver.cpp
 	<iostream>
 	"Rectangle.h"
 	"Rectangle.h"
 
-1430718832 s:\documents\github\cs-210-labs\lab 2b\rectangle.h
+1430720085 s:\documents\github\cs-210-labs\lab 2b\rectangle.h
+
+1430719323 source:s:\documents\github\cs-210-labs\lab 2b\fraction.cpp
+	"Fraction.h"
+
+1430719323 s:\documents\github\cs-210-labs\lab 2b\fraction.h
 

@@ -2,8 +2,8 @@
 // Lab 2b
 // Rectangle.h
 
-#ifndef FRACTION_H
-#define FRACTION_H
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
 template <class DataType>
 class Rectangle
@@ -20,38 +20,18 @@ public:
   DataType getLength () const {return w;}
 
   // Other functions
-  bool  isLengthBigger () const;
-  float getPerimeter () const;
-  float getArea () const;
+  bool  isLengthBigger () const
+  {
+    if ( l > w)
+      return true;
+    else return false;
+  }
+  float getPerimeter () const { return ( 2 * ( l + w)); }
+  float getArea () const { return ( l * w ); }
 
 private:
   DataType l, w; // Length and width
 
-
 };
-<<<<<<< HEAD
-=======
 
-
-
-  // Setters for length and width
-
-  template <class DataType>
-  void Rectangle<DataType>::setWidth  ( const DataType & width  ) { w = width;  }
-
-  template <class DataType>
-  void Rectangle<DataType>::setLength ( const DataType & length ) { l = length; }
-
-  // Other functions
-
-  template <class DataType>
-  bool  Rectangle<DataType>::isLengthBigger()const;
-
-  template <class DataType>
-  float Rectangle<DataType>::getPerimeter()const;
-
-  template <class DataType>
-  float Rectangle<DataType>::getArea()const;
-
->>>>>>> origin/master
 #endif
