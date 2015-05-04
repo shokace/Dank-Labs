@@ -15,8 +15,8 @@ public:
   void setLength ( const DataType & );
 
   // Getters for length and width
-  DataType getWidth ( const DataType & ) const {return l;}
-  DataType getWidth ( const DataType & ) const {return w;}
+  DataType getWidth () const {return l;}
+  DataType getLength () const {return w;}
 
   // Other functions
   bool  isLengthBigger const ();
