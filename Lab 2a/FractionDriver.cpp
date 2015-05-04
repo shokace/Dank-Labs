@@ -1,7 +1,6 @@
 // Alex Butorin, Petar Juric, Kevin Crabbe
 // Lab 2a
 // FractionDriver.cpp
-// Apparently GitHub doesn't think changing one word in a file is worth a re-sync...
 
 #include <iostream>
 #include "Fraction.h"
@@ -45,11 +44,6 @@ int main()
   temp = f2 * 2;
   cout << "  " << temp.n << "/" << temp.d << endl;
 
-
-
-
-
-
-
+  cin.get();
 
 }
