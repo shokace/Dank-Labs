@@ -14,3 +14,19 @@
 
 1430719323 s:\documents\github\cs-210-labs\lab 2b\fraction.h
 
+1430854520 source:c:\users\work\documents\github\dank-labs\lab 2b\fraction.cpp
+	"Fraction.h"
+
+1430854550 c:\users\work\documents\github\dank-labs\lab 2b\fraction.h
+	<iostream>
+
+1430854804 source:c:\users\work\documents\github\dank-labs\lab 2b\rectangledriver.cpp
+	<iostream>
+	<cassert>
+	"Rectangle.h"
+	"Fraction.h"
+	"Rectangle.h"
+	"Fraction.h"
+
+1430854873 c:\users\work\documents\github\dank-labs\lab 2b\rectangle.h
+

@@ -2,6 +2,9 @@
 // Lab 2a
 // Fraction.h
 
+#include <iostream> // for << overloading
+using namespace std;
+
 #ifndef FRACTION_H
 #define FRACTION_H
 
@@ -17,5 +20,8 @@ Fraction operator*( const Fraction &, const Fraction & );
 bool     operator>( const Fraction &, const Fraction & );
 Fraction operator*( const int      &, const Fraction & );
 Fraction operator*( const Fraction &, const int      & );
+bool     operator==( const Fraction &, const Fraction & );
+
+ostream& operator<<(ostream &, const Fraction &);
 
 #endif

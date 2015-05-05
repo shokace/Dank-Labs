@@ -52,4 +52,21 @@ Fraction operator*( const Fraction & f1, const int & n )
   temp.n = f1.n * n;
   temp.d = f1.d;
   return temp;
+
+}
+
+// Tests if two fractions are equal by checking their ratio.
+// Fractions can have different numbers but still be the same
+bool operator==( const Fraction & f1, const Fraction & f2 )
+{
+  //Convert to floats and divide
+  if( ((float)(f1.n) / (float)(f1.d)) == ((float)(f2.n) / (float)(f2.d)) )
+    return true;
+  else return false;
+}
+
+ostream& operator<<(ostream& os, const Fraction & frac)
+{
+    os << frac.n << '/' << frac.d;
+    return os;
 }
