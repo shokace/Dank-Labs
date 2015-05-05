@@ -1,29 +1,61 @@
-//Road.h by Alex Butorin (1216985)
-#ifndef Road_h
-#define Road_h
+//Petar Juric 1438711
+//I used the .zip example to reconstruct the assignment.
+//
+
+#ifndef ROAD_H
+#define ROAD_H
+
+#ifdef _CONSOLE
+#include <iostream>
+using namespace std;
+#endif
 
 class Road
 {
-public:
-
-
-	// Default ctor
-	Road(float length, float width);
-
-	// Setters
-	void setWidth(const float & width);
-	void setLength(const float & length);
-
-	// Getters
-	float getWidth()  const { return m_Width; }
-	float getLength() const { return m_Length; }
-
-	//Asphalt volume calculat0r
-	float asphalt(const float & thickness);
-
 private:
-	float m_Width;  //Width in feet
-	float m_Length;  //Length in miles
+	// Attributes
+	int m_height = NULL,
+        m_width  = NULL;
+public:
+	// Methods
+	Road()
+    {
+        m_height = 10;
+        m_width = 10;
+    }
+	Road(int height, int width)
+    {
+        m_height = height;
+        m_width = width;
+    }
+
+    Road& operator=(const Road& copy)
+    {
+        if(this == &copy)
+        {
+            return *this;
+        }
+        
+        m_height = copy.m_height;
+        m_width = copy.m_width;
+        
+        return *this;
+    }
+    
+
+
+	// Getters and Setters
+	int getHeight() const { return m_height; }
+	int getWidth() const { return m_width; }
+
+
+
+	void setHeight(int a_Height = 10);
+	void setWidth(int a_Width = 15); // using default arguements
+
+	int getArea() const { return m_height * m_width; }
+	int getCircumference() const { return 2 * (m_height + m_width); }
+
 };
 
-#endif // Road_h
+#endif
