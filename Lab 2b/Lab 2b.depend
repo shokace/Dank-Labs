@@ -17,12 +17,11 @@
 1430854520 source:c:\users\work\documents\github\dank-labs\lab 2b\fraction.cpp
 	"Fraction.h"
 
-1430854550 c:\users\work\documents\github\dank-labs\lab 2b\fraction.h
+1430858187 c:\users\work\documents\github\dank-labs\lab 2b\fraction.h
 	<iostream>
 
-1430855833 source:c:\users\work\documents\github\dank-labs\lab 2b\rectangledriver.cpp
+1430856009 source:c:\users\work\documents\github\dank-labs\lab 2b\rectangledriver.cpp
 	<iostream>
-	<cassert>
 	"Rectangle.h"
 	"Fraction.h"
 	"Rectangle.h"

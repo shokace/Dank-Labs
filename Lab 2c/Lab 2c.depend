@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1422392500 source:c:\users\work\documents\github\dank-labs\lab 2c\templatestackdriver.cpp
+	<iostream>
+	"TemplateStack.h"
+
+1422400746 c:\users\work\documents\github\dank-labs\lab 2c\templatestack.h
+
+1430860421 source:c:\users\work\documents\github\dank-labs\lab 2c\calculator2.cpp
+	"TemplateStack.h"
+	<iostream>
+	<cstdlib>
+	<string>
+
+1422400746 source:c:\users\work\documents\github\dank-labs\lab 2c\templatestack.h
+

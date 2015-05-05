@@ -12,6 +12,8 @@ struct Fraction
 {
   int n;
   int d;
+
+
 };
 
 // Add two fractions
@@ -20,8 +22,8 @@ Fraction operator*( const Fraction &, const Fraction & );
 bool     operator>( const Fraction &, const Fraction & );
 Fraction operator*( const int      &, const Fraction & );
 Fraction operator*( const Fraction &, const int      & );
-bool     operator==( const Fraction &, const Fraction & );
 
+bool     operator==( const Fraction &, const Fraction & );
 ostream& operator<<(ostream &, const Fraction &);
 
 #endif
