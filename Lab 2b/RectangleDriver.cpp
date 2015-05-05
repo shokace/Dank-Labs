@@ -3,7 +3,6 @@
 // Rectangle.h & RectangleDriver.cpp
 
 #include <iostream>
-#include <cassert>   // Assertions
 #include "Rectangle.h" // Rectangles
 #include "Fraction.h"  // Frations
 
