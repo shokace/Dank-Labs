@@ -23,7 +23,7 @@ int main()
   Rectangle<float> Float_Rectangle1, Float_Rectangle2;
   Rectangle<Fraction> Fraction_Rectangle1, Fraction_Rectangle2;
 
-  cout << "Object copy/assignment testing - Float data type\n";
+  cout << "Testing Float data type\n";
   {
     Float_Rectangle1.setLength( 1 );
     Float_Rectangle1.setWidth ( 1 );
@@ -54,7 +54,7 @@ int main()
   cout << endl;
   } // end object copy and assignment testing with float data type
 
-  cout << "Object copy/assignment testing - Fraction data type\n";
+  cout << "Testing Fraction data type\n";
   {
     // Temporary fractions
     Fraction length, width;
@@ -75,7 +75,7 @@ int main()
 
     // Confirm correct values/calculations
 
-    cout << "Expected: 1/2, 1/4, 12/8, 1/8. Actual: "
+    cout << "  Expected: 1/2, 1/4, 12/8, 1/8. Actual: "
        << Fraction_Rectangle2.getLength()
        << ", "  << Fraction_Rectangle2.getWidth()
        << ", "  << Fraction_Rectangle2.getPerimeter()
