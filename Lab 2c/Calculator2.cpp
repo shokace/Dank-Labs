@@ -22,12 +22,13 @@ int main()
   float isn = 0;
 
   // While the user hasn't pressed Q
-  while( iss != "q"  )
+  while( iss != "q" )
   {
     getline(cin, iss);
     cout << iss;
+
     // Convert input stream string to input stream float
-    //isn = atof( iss.c_str( tolower( iss )));
+    isn = atof( iss.c_str( tolower( iss )));
 
     // Now we can evaluate
 

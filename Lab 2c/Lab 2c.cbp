@@ -23,8 +23,14 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Calculator2.cpp" />
-		<Unit filename="TemplateStack.h" />
-		<Unit filename="TemplateStackDriver.cpp" />
+		<Unit filename="TemplateStack.h">
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
+		<Unit filename="TemplateStackDriver.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
