@@ -4,10 +4,10 @@
 
 // To demonstrate a simple template class
 
-#include <iostream>
-using namespace std;
+//#include <iostream>
+//using namespace std;
 
-#include "TemplateStack.h"
+//#include "TemplateStack.h"
 
 struct Vec2
 {

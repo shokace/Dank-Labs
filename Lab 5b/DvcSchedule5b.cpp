@@ -5,7 +5,7 @@
 #include <ctime>
 #include <iomanip>
 
-#include "CrabbeKevin_Lab5a_StaticArray.h"
+#include "StaticArray.h"
 
 using namespace std;
 

@@ -76,9 +76,11 @@ bool Stack<myType>::Pop()
 		return true;
 	}
 }
+
 // Top
 // copy the top thing onto the passed parameter, if there is a thing, and return true
 // else returns false and leaves the passed parameter unchanged.
+
 template <class myType>
 bool Stack<myType>::Top( myType & a_blank )const
 {
