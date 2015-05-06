@@ -16,7 +16,7 @@ struct Course
 
 };
 
-//Data strcuture hold the name of unique subject codes and # courses of each subject code
+//Data structure hold the name of unique subject codes and # courses of each subject code
 struct SubjectCode
 {
 	string subject;
@@ -25,6 +25,11 @@ struct SubjectCode
 
 int main()
 {
+  cout
+    << "// Alex Butorin, Petar Juric, Kevin Crabbe \n"
+    << "// Lab 5b, Schedule Reader \n"
+    << "// DvcSchedule5b.cpp \n\n";
+
 	const int MAX_SUBJECT_CODES = 200;
 	const int MAX_CLASSES = 100000;
 
@@ -35,11 +40,10 @@ int main()
 	// Array that holds all classes;
 	//StaticArray<Course, MAX_CLASSES> classes;
 	Course classes[MAX_CLASSES];
-	// While loop index
-	int scheduleIndex = 0;
 
-	// Subject code loop index
-	int subjectCodeIndex = 0;
+	int classIndex = 0;         // Counts how many non-duplicate classes we have
+	int subjectCodeIndex = 0;   // Counts how many subject codes we have
+  int duplicateCount = 0;     // Counts how many duplicates we have
 
 	// Open the file
 	ifstream fin;
@@ -49,149 +53,150 @@ int main()
 		throw "Cannot open file";
 	}
 
-	// Read the file
-	while (fin.good()) // So. Fin. Good.
+	// Read the file line by line, convert to a struct and store in the class array
+	while (fin.good())
 	{
-		// Current line
-		string line;
-		getline(fin, line);
+		// Read a line and split it into vars
+    // Current line
+    string line;
+    getline(fin, line);
 
-		// Parse the strings
-		// skip blank lines
-		if (line[0] == 0)  continue;
+    // Parse the strings
+    // skip blank lines
+    if (line[0] == 0)  continue;
 
-		size_t current, next = -1;
-		current = next + 1;
-		next = line.find_first_of("\t\n", current);
-		string term = line.substr(current, next - current);
+    size_t current, next = -1;
+    current = next + 1;
+    next = line.find_first_of("\t\n", current);
+    string term = line.substr(current, next - current);
 
-		current = next + 1;
-		next = line.find_first_of("\t\n", current);
-		string section = line.substr(current, next - current);
+    current = next + 1;
+    next = line.find_first_of("\t\n", current);
+    string section = line.substr(current, next - current);
 
-		current = next + 1;
-		string course;
-		if (current < line.length())
-		{
-			next = line.find_first_of("\t\n", current);
-			course = line.substr(current, next - current);
-		}
+    current = next + 1;
+    string course;
+    if (current < line.length())
+    {
+      next = line.find_first_of("\t\n", current);
+      course = line.substr(current, next - current);
+    }
 
-		current = next + 1;
-		string instructor;
-		if (current < line.length())
-		{
-			next = line.find_first_of("\t\n", current);
-			instructor = line.substr(current, next - current);
-		}
+    current = next + 1;
+    string instructor;
+    if (current < line.length())
+    {
+      next = line.find_first_of("\t\n", current);
+      instructor = line.substr(current, next - current);
+    }
 
-		current = next + 1;
-		string whenWhere;
-		if (current < line.length())
-		{
-			next = line.find_first_of("\t\n", current);
-			whenWhere = line.substr(current, next - current);
-		}
+    current = next + 1;
+    string whenWhere;
+    if (current < line.length())
+    {
+      next = line.find_first_of("\t\n", current);
+      whenWhere = line.substr(current, next - current);
+    }
 
-		if (course.find('-') == string::npos)
-			continue;
+    if (course.find('-') == string::npos)
+      continue;
 
-		string subjectCode(course.begin(), course.begin() + course.find('-'));
+    string subjectCode(course.begin(), course.begin() + course.find('-'));
 
-		// Print the line
-		//cout << term << " | " << section << " | "  << subjectCode << endl;
-		//<< cours  e << " | " << instructor << " | " << whenWhere << " | "
+    // Print the line
+    //cout << term << " | " << section << " | "  << subjectCode << endl;
+    //<< cours  e << " | " << instructor << " | " << whenWhere << " | "
 
-		// Create temporary struct
-		Course temp;
-		temp.term = term;
-		temp.section = section;
-		temp.subject = subjectCode;
-		int duplicateCount = 0;
+		// Store parsed line in a struct
+      Course temp;
+      temp.term = term;
+      temp.section = section;
+      temp.subject = subjectCode;
 
-		// Check for duplicates in the classes array -  dat big O
-		for (int i = 0; i <= scheduleIndex; i++)
-		{
-			// Check if term and section are unique.
-			// If it's a duplicate, don't check the rest of the elements and ignore the current entry
-			if ((classes[i].section == temp.section) && (classes[i].term == temp.term))
-			{
-				cout << "Duplicate found on scheduleIndex " << scheduleIndex << '\r' << endl;
-				duplicateCount++;
-				break;
-			}
+		// Determine if current line/struct/class is a duplicate.
+    for (int i = 0; i <= classIndex; i++)
+    {
+      // Check if term and section are unique.
+      // If it's a duplicate, don't check the rest of the elements and ignore the current entry
+      if ((classes[i].section == temp.section) && (classes[i].term == temp.term))
+      {
+        cout << '\r' << "Duplicate found on line " << setw(5) << classIndex << " (" << duplicateCount << " total) ";
+        duplicateCount++;
+        break;
+      }
 
-			// Check if we're on the last iteration of the loop
-			// If so, we have not found a duplicate and we can add it to the class array
-			if (i == scheduleIndex)
-			{
-				// Store in the array
-				classes[scheduleIndex] = temp;
-				scheduleIndex++;
-			}
-		}
-		// Increase Counter
-	} // end while loop
+      // Check if we're on the last iteration of the loop
+      // If so, we have not found a duplicate and we can add it to the class array
+      if (i == classIndex)
+      {
+        // Store in the array
+        classes[classIndex] = temp;
+        classIndex++;
+        break;
+      }
+    }
 
-	// Close the file
-	fin.close(); // So. Fin. Close.
+	} // End file parsing block
+  // File has been completely processed. Close the file.
+	fin.close();
 
-	// Process the data
-	// For each line of text that we read, run a loop
-	// That compares subject codes.
-	// If it's the same, increase counter, otherwise add new subject code.
-	// 'i' = current class in schedule
-	// 'j' = current subject code out of 200.
-	cout << "Index: " << scheduleIndex << endl;
-	for (int i = 0; i<scheduleIndex; i++)
-	{
-		// Check all existing subject codes
-		for (int j = 0; j <= subjectCodeIndex; j++)
-		{
-			// If we find the current subject code in the list, increase counter
-			// and break out of the loop, no need to check the rest.
-			if (classes[i].subject == subjects[j].subject)
-			{
-				subjects[j].count++;
-				break; //Don't check the rest of the subject codes
-			}
+	// Duplicates have been removed from the classes array.
+	// Now assign every class to a subject code.
+  // For each line of text that we read, run a loop
+  // That compares subject codes.
+  // If it's the same, increase counter, otherwise add new subject code.
+  // 'i' = current class in schedule
+  // 'j' = current subject code out of 200.
+  cout << "Index: " << classIndex << endl;
+  for (int i = 0; i<=classIndex; i++)
+  {
+    // Check all existing subject codes
+    for (int j = 0; j < subjectCodeIndex; j++)
+    {
+      // If we find the current subject code in the list, increase counter
+      // and break out of the loop, no need to check the rest.
+      if (classes[i].subject == subjects[j].subject)
+      {
+        subjects[j].count++;
+        break; //Don't check the rest of the subject codes
+      }
 
-			// If we're on the last iteration, we haven't found a class code like this
-			// So we add a new class code and increase the counter
-			if (j == subjectCodeIndex)
-			{
-				cout << "Adding new subject code, " << classes[i].subject << endl;
-				subjects[j + 1].subject = classes[i].subject;
-				subjects[j + 1].count = 0;
-				subjectCodeIndex++;
-				break;
-			}
-		} // Subject code FOR loop
-	} // Schedule FOR loop
+      // If we're on the last iteration, we haven't found a class code like this
+      // So we add a new class code and increase the counter
+      if (j == subjectCodeIndex )
+      {
+        cout << "Adding new subject code, " << classes[i].subject << endl;
+        subjects[j].subject = classes[i].subject;
+        subjects[j].count = 0;
+        subjectCodeIndex++;
+        break;
+      }
+    } // End Subject code FOR loop
+  } // End Schedule FOR loop
+  // End Class -> Subject code assignment block
 
-	// Sort the subject code array
-	// Modified/backwards bubble sort, because efficiency is overrated
-	for (int i = 0; i<subjectCodeIndex; i++)
-	{
+  // Subject codes and counts have been assigned. Sort them alphabetically.
+  // Modified/backwards bubble sort, because efficiency is overrated
+  for (int i = 0; i<subjectCodeIndex; i++)
+  {
+    for (int j = 0; j<(subjectCodeIndex - i); j++)
+    {
+      if (subjects[j].subject > subjects[j + 1].subject)
+      {
+        // Swap elements
+        SubjectCode temp;
+        temp = subjects[j];
+        subjects[j] = subjects[j + 1];
+        subjects[j + 1] = temp;
+      }
+    } // End j for
+  } // End i for
+  // Sorting block end
 
-		for (int j = 0; j<(subjectCodeIndex - i); j++)
-		{
-			if (subjects[j].subject > subjects[j + 1].subject)
-			{
-				// Swap elements
-				SubjectCode temp;
-				temp = subjects[j];
-				subjects[j] = subjects[j + 1];
-				subjects[j + 1] = temp;
-			}
-		}
-	}
+  // Print the data finally!!
+  for (int i = 0; i<subjectCodeIndex; i++)
+  {
+    cout << setw(5) << subjects[i].subject << " " << setw(4) << subjects[i].count << " classes" << endl;
+  }
 
-	// Print the data finally!!
-	for (int i = 0; i<subjectCodeIndex; i++)
-	{
-		cout << setw(5) << subjects[i].subject << " " << setw(4) << subjects[i].count << " classes" << endl;
-	}
-
-	//int main
-}
+} //int main
