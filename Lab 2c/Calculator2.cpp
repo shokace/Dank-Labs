@@ -1,36 +1,70 @@
 // Alex Butorin, Petar Juric, Kevin Crabbe
 // Lab 2c
 // Calculator2.cpp
-
-#include "TemplateStack.h"
-#include "TemplateStack.h" //ifndef test
 #include <iostream>
-#include <cstdlib>
+#include <stack>
 #include <string>
-#include <cctype>
-#include <algorithm>
-
 using namespace std;
+bool isOperand(char post);
 
 int main()
 {
-  // hi
-  cout
-    << "// Alex Butorin, Petar Juric, Kevin Crabbe \n"
-    << "// Lab 2c \n"
-    << "// Calculator2.cpp \n" ;
+	stack<double> stk;
+	string postFix;
+	cout << "Please enter the postfix expression: ";
+	getline(cin, postFix);
 
-  // Variables to hold input string and converted number
-  string iss = "";
-  double isn = 0;
-  Stack<double> ops;
+	for (int i = 0; i < postFix.length(); i++)
+	{
+		if (isOperand(postFix[i]))
+		{
+			stk.push(atof(postFix.c_str()));
+		}
+			
+		else //token must be an operator
+		{
+			double operand2 = stk.top();
+			stk.pop();
+			if (operand2 == 0 && (postFix[i] == '/' || postFix[i] =='%'))
+			{
+				cout << "Error: Division by Zero\n";
+			}
+			double operand1 = stk.top();
+			stk.pop();
 
-  // While the user hasn't pressed q
-  while( iss != "q" && iss !="Q" )
-  {
-    getline(cin, iss);
-    isn = atof( iss.c_str() );
+			//operation
+			double result;
+			switch (postFix[i])
+			{
+			case '+':
+				result = operand1 + operand2;
+				break;
+			case '-':
+				result = operand1 - operand2;
+				break;
+			case '*':
+				result = operand1*operand2;
+				break;
+			case '/':
+				result = operand1 / operand2;
+				break;
+			}
+			stk.push(result);
+		}
+	}
+	cout << "The result is: " << stk.top() << endl;
+	stk.pop();
 
+	//exit
+	cout << "Please press enter to exit: ";
+	cin.get();
 
-  }
+}
+
+bool isOperand(char post)
+{
+	if (post == '/' || post == '*' || post == '+' || post == '-')
+		return false;
+	else
+		return true;
 }
