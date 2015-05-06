@@ -1,3 +1,28 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <exception>
+#include <ctime>
+#include <iomanip>
+
+#include "CrabbeKevin_Lab5a_StaticArray.h"
+
+using namespace std;
+
+//Data structure holds a course and its data
+struct Course
+{
+	string term, section, subject;
+
+};
+
+//Data strcuture hold the name of unique subject codes and # courses of each subject code
+struct SubjectCode
+{
+	string subject;
+	int count;
+};
+
 int main()
 {
 	const int MAX_SUBJECT_CODES = 200;
