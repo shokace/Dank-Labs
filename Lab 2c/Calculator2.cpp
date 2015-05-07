@@ -4,56 +4,128 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <cstdlib>
+
 using namespace std;
-bool isOperand(char post);
+bool isOperand(string post);
 
 int main()
 {
 	stack<double> stk;
 	string postFix;
-	cout << "Please enter the postfix expression: ";
-	getline(cin, postFix);
 
-	for (int i = 0; i < postFix.length(); i++)
-	{
-		if (isOperand(postFix[i]))
-		{
-			stk.push(atof(postFix.c_str()));
-		}
-			
-		else //token must be an operator
-		{
-			double operand2 = stk.top();
-			stk.pop();
-			if (operand2 == 0 && (postFix[i] == '/' || postFix[i] =='%'))
-			{
-				cout << "Error: Division by Zero\n";
-			}
-			double operand1 = stk.top();
-			stk.pop();
+	while ( postFix != "Q" && postFix != "q" )
+  {
+    cout << "Please enter the postfix expression: ";
+    getline(cin, postFix);
 
-			//operation
-			double result;
-			switch (postFix[i])
-			{
-			case '+':
-				result = operand1 + operand2;
-				break;
-			case '-':
-				result = operand1 - operand2;
-				break;
-			case '*':
-				result = operand1*operand2;
-				break;
-			case '/':
-				result = operand1 / operand2;
-				break;
-			}
-			stk.push(result);
-		}
-	}
-	cout << "The result is: " << stk.top() << endl;
-	stk.pop();
+    // Push string on stack
+    if ( isOperand( postFix ) )
+    {
+      stk.push( atof( postFix.c_str() ) );
+    }
+
+    // Token is an operator
+    else
+    {
+      // Ignore operator if there's less than 2 elements in the stack..
+      if ( stk.size() >= 2 )
+      {
+          // Pop two elements, calculate, then push the result back in...
+        double op1 = stk.top();
+        stk.pop();
+
+        double op2 = stk.top();
+        stk.pop();
+
+        // Calculate
+        double result;
+        switch ( atoi( postFix.c_str()) )
+        {
+          case '+':
+            result = op1 + op2;
+            break;
+          case '-':
+            result = op1 - op2;
+            break;
+          case '*':
+            result = op1 * op2;
+            break;
+          case '/':
+            result = op1 / op2;
+            break;
+        }
+
+        // Push it back in.
+        stk.push( result );
+
+      } // end inner if
+    } // End else
+
+    // Print out the stack
+    for (int i=0; i < stk.size(); i++)
+    {
+      stack<double> temp;
+      temp = stk;
+
+      cout << temp.top() << " ";
+      temp.pop();
+
+      if (i == (stk.size() - 1)) { cout << endl; }
+    }
+
+/* Kevin's code
+
+    // Push all eleme-me-me-ments on the stack...
+    for (int i = 0; i < postFix.length(); i++)
+    {
+      if (isOperand(postFix[i]))
+      {
+        stk.push(atof(postFix.c_str()));
+      }
+
+      else //token must be an operator
+      {
+        // Get the first operand
+        double operand2 = stk.top();
+        stk.pop();
+
+        if (operand2 == 0 && (postFix[i] == '/' || postFix[i] =='%'))
+        {
+          cout << "Error: Division by Zero\n";
+        }
+
+        double operand1 = stk.top();
+        stk.pop();
+
+        //operation
+        double result;
+        switch (postFix[i])
+        {
+        case '+':
+          result = operand1 + operand2;
+          break;
+        case '-':
+          result = operand1 - operand2;
+          break;
+        case '*':
+          result = operand1*operand2;
+          break;
+        case '/':
+          result = operand1 / operand2;
+          break;
+        }
+
+        stk.push(result);
+      }
+	  }
+
+	  */ //End Kevins code
+
+    cout << "The result is: " << stk.top() << endl;
+
+  } // End while
+
 
 	//exit
 	cout << "Please press enter to exit: ";
@@ -61,9 +133,9 @@ int main()
 
 }
 
-bool isOperand(char post)
+bool isOperand(string post)
 {
-	if (post == '/' || post == '*' || post == '+' || post == '-')
+	if (post == "/" || post == "*" || post == "+" || post == "-")
 		return false;
 	else
 		return true;

@@ -23,7 +23,6 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Calculator2.cpp" />
-		<Unit filename="TemplateStack.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

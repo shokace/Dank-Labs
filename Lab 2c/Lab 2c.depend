@@ -5,13 +5,11 @@
 
 1430886139 c:\users\work\documents\github\dank-labs\lab 2c\templatestack.h
 
-1430891034 source:c:\users\work\documents\github\dank-labs\lab 2c\calculator2.cpp
-	"TemplateStack.h"
-	"TemplateStack.h"
+1430983528 source:c:\users\work\documents\github\dank-labs\lab 2c\calculator2.cpp
 	<iostream>
-	<cstdlib>
+	<stack>
 	<string>
-	<cctype>
+	<cstdlib>
 
 1430886139 source:c:\users\work\documents\github\dank-labs\lab 2c\templatestack.h
 
