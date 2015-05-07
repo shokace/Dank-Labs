@@ -12,11 +12,21 @@ bool isOperand(string post);
 int main()
 {
 	stack<double> stk;
-	string postFix;
+
+
+
+  string postFix="";
 
 	while ( postFix != "Q" && postFix != "q" )
   {
-    cout << "Please enter the postfix expression: ";
+    cout << "Enter: ";
+
+    // Print out the stack
+    for (stack<double> dump = stk; !dump.empty(); dump.pop())
+    {
+      cout << dump.top() << ' ';
+    }
+
     getline(cin, postFix);
 
     // Push string on stack
@@ -62,17 +72,22 @@ int main()
       } // end inner if
     } // End else
 
-    // Print out the stack
-    for (int i=0; i < stk.size(); i++)
-    {
-      stack<double> temp;
-      temp = stk;
+  } // End while
 
-      cout << temp.top() << " ";
-      temp.pop();
+	cout << "Press enter to exit.";
+	cin.get();
 
-      if (i == (stk.size() - 1)) { cout << endl; }
-    }
+}
+
+bool isOperand(string post)
+{
+	if (post == "/" || post == "*" || post == "+" || post == "-")
+		return false;
+	else
+		return true;
+}
+
+
 
 /* Kevin's code
 
@@ -122,21 +137,3 @@ int main()
 
 	  */ //End Kevins code
 
-    cout << "The result is: " << stk.top() << endl;
-
-  } // End while
-
-
-	//exit
-	cout << "Please press enter to exit: ";
-	cin.get();
-
-}
-
-bool isOperand(string post)
-{
-	if (post == "/" || post == "*" || post == "+" || post == "-")
-		return false;
-	else
-		return true;
-}
