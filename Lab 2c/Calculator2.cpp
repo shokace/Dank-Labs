@@ -2,6 +2,7 @@
 // Lab 2c
 // Calculator2.cpp
 #include <iostream>
+#include <iomanip>
 #include <stack>
 #include <string>
 #include <cstdlib>
@@ -12,9 +13,6 @@ bool isOperand(string post);
 int main()
 {
 	stack<double> stk;
-
-
-
   string postFix="";
 
 	while ( postFix != "Q" && postFix != "q" )
@@ -39,18 +37,21 @@ int main()
     else
     {
       // Ignore operator if there's less than 2 elements in the stack..
-      if ( stk.size() >= 2 )
+      if ( (stk.size() > 1) && (postFix.size() == 1) )
       {
           // Pop two elements, calculate, then push the result back in...
-        double op1 = stk.top();
-        stk.pop();
-
         double op2 = stk.top();
         stk.pop();
 
+        double op1 = stk.top();
+        stk.pop();
+
         // Calculate
-        double result;
-        switch ( atoi( postFix.c_str()) )
+        double result = 0;
+
+        // First character is the operator
+
+        switch ( postFix[0]  )
         {
           case '+':
             result = op1 + op2;
